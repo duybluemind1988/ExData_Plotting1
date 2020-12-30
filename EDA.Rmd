@@ -83,16 +83,50 @@ with(data, {
 
 
 ```{r}
+library(nlme)
+library(lattice)
+xyplot(weight ~ Time | Diet, BodyWeight)
 ```
 
 
 ```{r}
+library(lattice)
+library(datasets)
+data(airquality)
+p <- xyplot(Ozone ~ Wind | factor(Month), data = airquality)
+print(p)
 ```
 
 
 ```{r}
+library(datasets)
+data(airquality)
 ```
 
+```{r}
+library(ggplot2)
+qplot(Wind, Ozone, data = airquality, facets = . ~ factor(Month))
+```
+
+
+```{r}
+airquality = transform(airquality, Month = factor(Month))
+qplot(Wind, Ozone, data = airquality, facets = . ~ Month)
+```
+
+
+```{r}
+#install.packages("ggplot2movies")
+library(ggplot2)
+library(ggplot2movies)
+g <- ggplot(movies, aes(votes, rating))
+print(g)
+```
+
+
+```{r}
+qplot(votes, rating, data = movies) + geom_smooth()
+```
 
 ```{r}
 ```
